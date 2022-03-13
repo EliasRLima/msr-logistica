@@ -33,4 +33,8 @@ public class CatalogoClienteService {
 	public void excluir(Long id) {
 		clienteRepository.deleteById(id);
 	}
+	
+	public Cliente buscar(Long clienteId) {
+		return clienteRepository.findById(clienteId).orElseThrow( () -> new NegocioException("cliente nao localizado."));
+	}
 }
